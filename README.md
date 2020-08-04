@@ -8,7 +8,8 @@ The last API Wrapper which provider for Node.js is outdated, so to make it more 
 
 ## How to use
 1. Make Boilerplate config and save it to `config.json`
-2. 
+2. Fill `token` ([API KEY](https://www.digitalocean.com/community/tutorials/how-to-create-a-digitalocean-space-and-api-key#creating-an-access-key)) and `ssh_id` (Your SSH ID from imported to Digital Ocean)
+3. Run `node main.js`
 
 ## Config Boilerplate
 ```json
