@@ -19,7 +19,7 @@ function main() {
 	console.log('4. Cek semua droplets (semua)')
 	console.log('5. Hapus semua VPS (semua)')
 	console.log('6. Lihat Config')
-	console.log('10. Buat SSH Key (dev jangan ditekan)')
+	console.log('10. Import SSH Key')
 	console.log('0. Keluar dari program')
 	readline.question(`> `, select => {
 	    if (select == 1) {
@@ -179,6 +179,7 @@ function main() {
 		makeSSH().then((res) => {
 		    console.log('\n')
 		    console.log(res)
+		    console.log('Silahkan diganti ssh_id di config.json dengan ssh_id diatas')
 		    console.log('\n')
 		    main()
 		}).catch((err) => {
