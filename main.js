@@ -41,7 +41,7 @@ function main() {
 							sleep(2000).then(() => {
 							    infoDroplet(x.id).then((y) => {
 								console.log('  [' + i + '/' + regions.length + '] droplet [' + xe.slug + '] telah terbuat')
-								console.log('    [-] IP : ' + y['droplet'].networks['v4'][0].ip_address)
+								console.log('    [-] IP : ' + y['droplet'].networks['v4'][1].ip_address)
 								if (i === droplets.meta.total) {
 								    console.log('[+] Selesai')
 								    console.log()
@@ -84,7 +84,11 @@ function main() {
 			let i = 1
 			droplets['droplets'].map(x => {
 			    infoDroplet(x.id).then((y) => {
-				console.log('[' + x.name + '] (' + y['droplet'].region.slug +  ') ' + x.size_slug + ' - ' + y['droplet'].networks['v4'][0].ip_address)
+				if (y['droplet'].networks['v4'][1]) {
+				    console.log('[' + x.name + '] (' + y['droplet'].region.slug +  ') ' + x.size_slug + ' - ' + y['droplet'].networks['v4'][1].ip_address)
+				} else {
+				    console.log('[' + x.name + '] (' + y['droplet'].region.slug +  ') ' + x.size_slug + ' - ' + y['droplet'].networks['v4'][0].ip_address)
+				}
 				if (i === droplets.meta.total) {
 				    console.log('\n')
 				    main()
@@ -129,7 +133,11 @@ function main() {
 			let i = 1
 			droplets['droplets'].map(x => {
 			    infoDroplet(x.id).then((y) => {
-				console.log('[' + x.name + '] (' + y['droplet'].region.slug +  ') ' + x.size_slug + ' - ' + y['droplet'].networks['v4'][0].ip_address)
+				if (y['droplet'].networks['v4'][1]) {
+				    console.log('[' + x.name + '] (' + y['droplet'].region.slug +  ') ' + x.size_slug + ' - ' + y['droplet'].networks['v4'][1].ip_address)
+				} else {
+				    console.log('[' + x.name + '] (' + y['droplet'].region.slug +  ') ' + x.size_slug + ' - ' + y['droplet'].networks['v4'][0].ip_address)
+				}
 				if (i === droplets.meta.total) {
 				    console.log('\n')
 				    main()
